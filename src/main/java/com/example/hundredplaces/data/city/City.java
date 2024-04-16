@@ -12,7 +12,8 @@ public class City {
 
     @Column(
             name = "name",
-            unique = true
+            unique = true,
+            nullable = false
     )
     private String name;
 
