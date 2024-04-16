@@ -12,7 +12,8 @@ public class Image {
 
     @Column(
             name = "image_path",
-            unique = true
+            unique = true,
+            nullable = false
     )
     private String imagePath;
 
