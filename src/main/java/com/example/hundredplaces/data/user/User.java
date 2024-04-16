@@ -30,6 +30,12 @@ public class User {
     private String password;
 
     @Column(
+            name = "hundred_places_visited",
+            nullable = false
+    )
+    private int hundredPlacesVisited = 0;
+
+    @Column(
             name = "museums_visited",
             nullable = false
     )
@@ -127,6 +133,14 @@ public class User {
         this.password = password;
     }
 
+    public int getHundredPlacesVisited() {
+        return hundredPlacesVisited;
+    }
+
+    public void setHundredPlacesVisited(int hundredPlacesVisited) {
+        this.hundredPlacesVisited = hundredPlacesVisited;
+    }
+
     public int getMuseumsVisited() {
         return museumsVisited;
     }
@@ -222,6 +236,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", hundredPlacesVisited=" + hundredPlacesVisited +
                 ", museumsVisited=" + museumsVisited +
                 ", peaksVisited=" + peaksVisited +
                 ", galleriesVisited=" + galleriesVisited +
