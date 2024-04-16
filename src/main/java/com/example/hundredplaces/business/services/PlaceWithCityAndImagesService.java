@@ -29,7 +29,7 @@ public class PlaceWithCityAndImagesService {
         City city = cityRepository.findById(place.getCityId());
         placeWithCityAndImage.setCityName(city.getName());
         List<String> images = new ArrayList<>();
-        imageRepository.findAllByPlaceId(place.getId()).forEach(image -> {images.add(image.getImagePath());});
+        imageRepository.findAllByPlaceId(place.getId()).forEach(image -> images.add(image.getImagePath()));
         placeWithCityAndImage.setImages(images);
         return placeWithCityAndImage;
     }
