@@ -39,7 +39,7 @@ public class Place {
             name = "rating",
             nullable = false
     )
-    private double rating;
+    private double rating = 0.0;
 
     @Column(
             name = "description_path",
