@@ -17,7 +17,10 @@ public class Image {
     )
     private String imagePath;
 
-    @Column(name = "place_id")
+    @Column(
+            name = "place_id",
+            nullable = false
+    )
     private long placeId;
 
     public long getId() {
