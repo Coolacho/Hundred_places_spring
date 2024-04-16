@@ -12,12 +12,21 @@ public class Visit {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "user_id")
+    @Column(
+            name = "user_id",
+            nullable = false
+    )
     private long userId;
 
-    @Column(name = "place_id")
+    @Column(
+            name = "place_id",
+            nullable = false
+    )
     private long placeId;
 
-    @Column(name = "date_visited")
+    @Column(
+            name = "date_visited",
+            nullable = false
+    )
     private Date dateVisited;
 }
