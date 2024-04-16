@@ -3,7 +3,10 @@ package com.example.hundredplaces.data.user;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(
+        name = "users",
+        uniqueConstraints = { @UniqueConstraint(name = "UniqueEmailAndPassword", columnNames = { "email", "password" }) }
+)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

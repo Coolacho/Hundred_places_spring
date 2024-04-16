@@ -10,7 +10,10 @@ public class Place {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "name")
+    @Column(
+            name = "name",
+            unique = true
+    )
     private String name;
 
     @Column(name = "latitude")

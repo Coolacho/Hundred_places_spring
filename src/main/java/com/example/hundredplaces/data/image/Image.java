@@ -10,7 +10,10 @@ public class Image {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "image_path")
+    @Column(
+            name = "image_path",
+            unique = true
+    )
     private String imagePath;
 
     @Column(name = "place_id")
