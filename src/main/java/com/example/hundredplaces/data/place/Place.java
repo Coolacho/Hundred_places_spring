@@ -12,29 +12,51 @@ public class Place {
 
     @Column(
             name = "name",
-            unique = true
+            unique = true,
+            nullable = false
     )
     private String name;
 
-    @Column(name = "latitude")
+    @Column(
+            name = "latitude",
+            nullable = false
+    )
     private double latitude;
 
-    @Column(name = "longitude")
+    @Column(
+            name = "longitude",
+            nullable = false
+    )
     private double longitude;
 
-    @Column(name = "type")
+    @Column(
+            name = "type",
+            nullable = false
+    )
     private PlaceType type;
 
-    @Column(name = "rating")
+    @Column(
+            name = "rating",
+            nullable = false
+    )
     private double rating;
 
-    @Column(name = "description_path")
+    @Column(
+            name = "description_path",
+            nullable = false
+    )
     private String descriptionPath;
 
-    @Column(name = "is_100_places")
+    @Column(
+            name = "is_100_places",
+            nullable = false
+    )
     private boolean is100Places;
 
-    @Column(name = "city_id")
+    @Column(
+            name = "city_id",
+            nullable = false
+    )
     private long cityId;
 
     public long getId() {
