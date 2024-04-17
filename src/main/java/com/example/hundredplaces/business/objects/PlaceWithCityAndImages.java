@@ -6,7 +6,7 @@ import java.util.List;
 
 public class PlaceWithCityAndImages {
     private Place place;
-    private String cityName;
+    private String city;
     private List<String> images;
 
     public Place getPlace() {
@@ -17,12 +17,12 @@ public class PlaceWithCityAndImages {
         this.place = place;
     }
 
-    public String getCityName() {
-        return cityName;
+    public String getCity() {
+        return city;
     }
 
-    public void setCityName(String cityName) {
-        this.cityName = cityName;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public List<String> getImages() {
@@ -36,8 +36,8 @@ public class PlaceWithCityAndImages {
     @Override
     public String toString() {
         return "PlaceWithCityAndImages{" +
-                place.toString() +
-                ", cityName='" + cityName + '\'' +
+                "place=" + place.toString() +
+                ", city='" + city + '\'' +
                 ", images=" + images +
                 '}';
     }
