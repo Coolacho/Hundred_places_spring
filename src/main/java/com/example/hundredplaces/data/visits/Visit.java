@@ -2,7 +2,7 @@ package com.example.hundredplaces.data.visits;
 
 import jakarta.persistence.*;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "visits")
@@ -28,5 +28,5 @@ public class Visit {
             name = "date_visited",
             nullable = false
     )
-    private Date dateVisited;
+    private LocalDateTime dateVisited;
 }
