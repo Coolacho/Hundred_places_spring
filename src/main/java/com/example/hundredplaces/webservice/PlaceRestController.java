@@ -26,13 +26,16 @@ public class PlaceRestController {
 
     @GetMapping("/all/filled")
     public List<PlaceWithCityAndImages> getAllPlacesWithCityAndImages() {
-        return placeWithCityAndImagesService.getPlaceWithCityAndImages();
+        return placeWithCityAndImagesService.getPlacesWithCityAndImages();
     }
 
-    @GetMapping("/place")
+    @GetMapping("/place/plain")
     public Place getPlaceById(@RequestParam long id) {
         return placeRepository.findById(id);
     }
+
+    @GetMapping("/place/filled")
+    public PlaceWithCityAndImages getPlaceWithCityAndImages(@RequestParam long id) { return placeWithCityAndImagesService.getPlaceWithCityAndImages(id); }
 
     @PostMapping("/new")
     public Place createPlace(@RequestBody Place place) {
