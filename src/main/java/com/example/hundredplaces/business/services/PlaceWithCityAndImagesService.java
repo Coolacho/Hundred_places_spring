@@ -26,15 +26,17 @@ public class PlaceWithCityAndImagesService {
     private PlaceWithCityAndImages fetchPlaceWithCityAndImages(Place place) {
         PlaceWithCityAndImages placeWithCityAndImage = new PlaceWithCityAndImages();
         placeWithCityAndImage.setPlace(place);
+
         City city = cityRepository.findById(place.getCityId());
-        placeWithCityAndImage.setCityName(city.getName());
+        placeWithCityAndImage.setCity(city.getName());
+
         List<String> images = new ArrayList<>();
         imageRepository.findAllByPlaceId(place.getId()).forEach(image -> images.add(image.getImagePath()));
         placeWithCityAndImage.setImages(images);
         return placeWithCityAndImage;
     }
 
-    public List<PlaceWithCityAndImages> getPlaceWithCityAndImages() {
+    public List<PlaceWithCityAndImages> getPlacesWithCityAndImages() {
         Iterable<Place> places = placeRepository.findAll();
         List<PlaceWithCityAndImages> placesWithCityAndImages = new ArrayList<>();
 
@@ -43,6 +45,11 @@ public class PlaceWithCityAndImagesService {
         }
 
         return placesWithCityAndImages;
+    }
+
+    public PlaceWithCityAndImages getPlaceWithCityAndImages(Long id) {
+        Place place = placeRepository.findById(id).orElse(null);
+        return fetchPlaceWithCityAndImages(place);
     }
 
 }
