@@ -4,6 +4,7 @@ import com.example.hundredplaces.data.visits.Visit;
 import com.example.hundredplaces.data.visits.VisitRepository;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -16,13 +17,8 @@ public class VisitRestController {
     }
 
     @GetMapping("/all")
-    public List<Visit> getAllCities() {
-        return visitRepository.findAll();
-    }
-
-    @GetMapping("/visit")
-    public Visit getVisitById(@RequestParam long id) {
-        return visitRepository.findById(id);
+    public List<LocalDateTime> getAllVisitDatesByUserIdAndPlaceId(@RequestParam("userId") Long userId, @RequestParam("placeId") Long placeId) {
+        return visitRepository.findVisitDatesByUserIdAndPlaceId(userId, placeId);
     }
 
     @PostMapping("/new")
@@ -30,13 +26,4 @@ public class VisitRestController {
         return visitRepository.save(visit);
     }
 
-    @PutMapping("/update")
-    public Visit updateVisit(@RequestBody Visit visit) {
-        return visitRepository.save(visit);
-    }
-
-    @DeleteMapping("/delete")
-    public void deleteVisitById(@RequestParam long id) {
-        visitRepository.deleteById(id);
-    }
 }
