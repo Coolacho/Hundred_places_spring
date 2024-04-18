@@ -101,6 +101,12 @@ public class User {
     )
     private int othersVisited = 0;
 
+    @Column(
+            name = "total_visited",
+            nullable = false
+    )
+    private int totalVisited = 0;
+
     public long getId() {
         return id;
     }
@@ -229,6 +235,14 @@ public class User {
         this.othersVisited = othersVisited;
     }
 
+    public int getTotalVisited() {
+        return totalVisited;
+    }
+
+    public void setTotalVisited(int totalVisited) {
+        this.totalVisited = totalVisited;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -248,6 +262,7 @@ public class User {
                 ", monumentsVisited=" + monumentsVisited +
                 ", waterfallsVisited=" + waterfallsVisited +
                 ", othersVisited=" + othersVisited +
+                ", totalVisited=" + totalVisited +
                 '}';
     }
 }
