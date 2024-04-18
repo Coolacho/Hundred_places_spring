@@ -13,9 +13,14 @@ public class UserRestController {
         this.userRepository = userRepository;
     }
 
-    @GetMapping("/user")
+    @GetMapping("/user/login")
     public User getUser(@RequestParam String email, @RequestParam String password) {
         return userRepository.findByEmailAndPassword(email, password);
+    }
+
+    @GetMapping("/user/existing")
+    public User getUser(@RequestParam String email) {
+        return userRepository.findByEmail(email);
     }
 
     @PostMapping("/new")
