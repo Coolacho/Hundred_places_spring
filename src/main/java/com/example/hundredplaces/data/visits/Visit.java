@@ -3,54 +3,54 @@ package com.example.hundredplaces.data.visits;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(name = "visits")
 public class Visit {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private UUID id = UUID.randomUUID();
 
     @Column(
             name = "user_id",
             nullable = false
     )
-    private long userId;
+    private int userId;
 
     @Column(
             name = "place_id",
             nullable = false
     )
-    private long placeId;
+    private int placeId;
 
     @Column(
             name = "date_visited",
             nullable = false
     )
-    private LocalDateTime dateVisited;
+    private LocalDateTime dateVisited = LocalDateTime.now();
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public long getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(long userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
-    public long getPlaceId() {
+    public int getPlaceId() {
         return placeId;
     }
 
-    public void setPlaceId(long placeId) {
+    public void setPlaceId(int placeId) {
         this.placeId = placeId;
     }
 

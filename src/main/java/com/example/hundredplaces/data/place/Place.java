@@ -8,7 +8,7 @@ public class Place {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(
             name = "name",
@@ -57,13 +57,13 @@ public class Place {
             name = "city_id",
             nullable = false
     )
-    private long cityId;
+    private int cityId;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -115,7 +115,7 @@ public class Place {
         this.descriptionPath = descriptionPath;
     }
 
-    public boolean isIs100Places() {
+    public boolean getIs100Places() {
         return is100Places;
     }
 
@@ -123,11 +123,11 @@ public class Place {
         this.is100Places = is100Places;
     }
 
-    public long getCityId() {
+    public int getCityId() {
         return cityId;
     }
 
-    public void setCityId(long cityId) {
+    public void setCityId(int cityId) {
         this.cityId = cityId;
     }
 

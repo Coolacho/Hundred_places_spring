@@ -1,10 +1,9 @@
-package com.example.hundredplaces.webservice;
+package com.example.hundredplaces.business.webservices;
 
 import com.example.hundredplaces.data.visits.Visit;
 import com.example.hundredplaces.data.visits.VisitRepository;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -16,14 +15,13 @@ public class VisitRestController {
         this.visitRepository = visitRepository;
     }
 
-    @GetMapping("/all")
-    public List<LocalDateTime> getAllVisitDatesByUserIdAndPlaceId(@RequestParam("userId") Long userId, @RequestParam("placeId") Long placeId) {
-        return visitRepository.findVisitDatesByUserIdAndPlaceId(userId, placeId);
+    @GetMapping()
+    public List<Visit> getAllVisitsByUserId(@RequestParam("userId") int userId) {
+        return visitRepository.findAllByUserId(userId);
     }
 
     @PostMapping("/new")
-    public Visit createVisit(@RequestBody Visit visit) {
-        return visitRepository.save(visit);
+    public void insertVisits(@RequestBody List<Visit> visits) {
+        visitRepository.insertAll(visits);
     }
-
 }

@@ -1,27 +1,23 @@
 package com.example.hundredplaces.util;
 
-import com.example.hundredplaces.business.objects.PlaceWithCityAndImages;
-import com.example.hundredplaces.business.services.PlaceWithCityAndImagesService;
 import com.example.hundredplaces.data.user.User;
 import com.example.hundredplaces.data.user.UserRepository;
+import com.example.hundredplaces.data.visits.Visit;
 import com.example.hundredplaces.data.visits.VisitRepository;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
 public class AppStartupEvent implements ApplicationListener<ApplicationReadyEvent> {
     private final UserRepository userRepository;
     private final VisitRepository visitRepository;
-    private final PlaceWithCityAndImagesService placeWithCityAndImagesService;
 
-    public AppStartupEvent(UserRepository userRepository, VisitRepository visitRepository, PlaceWithCityAndImagesService placeWithCityAndImagesService) {
+    public AppStartupEvent(UserRepository userRepository, VisitRepository visitRepository) {
         this.userRepository = userRepository;
         this.visitRepository = visitRepository;
-        this.placeWithCityAndImagesService = placeWithCityAndImagesService;
     }
 
     @Override
@@ -31,12 +27,8 @@ public class AppStartupEvent implements ApplicationListener<ApplicationReadyEven
         System.out.println(user1);
         System.out.println(user2);
 
-        List<LocalDateTime> visit1 = visitRepository.findVisitDatesByUserIdAndPlaceId(1, 1);
-        List<LocalDateTime> visit2 = visitRepository.findVisitDatesByUserIdAndPlaceId(1, 2);
-        visit1.forEach(System.out::println);
-        visit2.forEach(System.out::println);
+        List<Visit> visits = visitRepository.findAllByUserId(1);
+        System.out.println(visits);
 
-        List<PlaceWithCityAndImages> places = placeWithCityAndImagesService.getPlacesWithCityAndImages();
-        places.forEach(System.out::println);
     }
 }

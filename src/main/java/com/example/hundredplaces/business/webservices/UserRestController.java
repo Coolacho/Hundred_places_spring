@@ -1,4 +1,4 @@
-package com.example.hundredplaces.webservice;
+package com.example.hundredplaces.business.webservices;
 
 import com.example.hundredplaces.data.user.User;
 import com.example.hundredplaces.data.user.UserRepository;
@@ -34,7 +34,7 @@ public class UserRestController {
     }
 
     @DeleteMapping("/delete")
-    public void deleteUserById(@RequestParam long id) {
+    public void deleteUserById(@RequestParam int id) {
         userRepository.deleteById(id);
     }
 }

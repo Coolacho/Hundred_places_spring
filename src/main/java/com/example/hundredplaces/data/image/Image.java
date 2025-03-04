@@ -8,7 +8,7 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private int id;
 
     @Column(
             name = "image_path",
@@ -21,13 +21,13 @@ public class Image {
             name = "place_id",
             nullable = false
     )
-    private long placeId;
+    private int placeId;
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -39,11 +39,11 @@ public class Image {
         this.imagePath = imagePath;
     }
 
-    public long getPlaceId() {
+    public int getPlaceId() {
         return placeId;
     }
 
-    public void setPlaceId(long placeId) {
+    public void setPlaceId(int placeId) {
         this.placeId = placeId;
     }
 
