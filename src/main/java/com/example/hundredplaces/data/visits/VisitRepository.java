@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -36,5 +36,5 @@ public interface VisitRepository extends JpaRepository<Visit, Integer> {
             @Param("id") UUID id,
             @Param("userId") int userId,
             @Param("placeId") int placeId,
-            @Param("dateVisited") LocalDateTime dateVisited);
+            @Param("dateVisited") Instant dateVisited);
 }

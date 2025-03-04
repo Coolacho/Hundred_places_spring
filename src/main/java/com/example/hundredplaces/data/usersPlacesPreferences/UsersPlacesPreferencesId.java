@@ -9,6 +9,8 @@ public class UsersPlacesPreferencesId implements Serializable {
 
     private int placeId;
 
+    public UsersPlacesPreferencesId() {}
+
     public UsersPlacesPreferencesId(int userId, int placeId) {
         this.userId = userId;
         this.placeId = placeId;

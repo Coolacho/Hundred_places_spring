@@ -2,7 +2,7 @@ package com.example.hundredplaces.data.usersPlacesPreferences;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 @Entity
 @IdClass(UsersPlacesPreferencesId.class)
@@ -18,19 +18,19 @@ public class UsersPlacesPreferences {
             name = "rating",
             nullable = false
     )
-    private double rating = 0.0;
+    private double rating;
 
     @Column(
             name = "is_favorite",
             nullable = false
     )
-    private boolean isFavorite = false;
+    private boolean isFavorite;
 
     @Column(
             name = "last_update",
             nullable = false
     )
-    private LocalDateTime lastUpdate = LocalDateTime.now();
+    private Instant lastUpdate;
 
     public int getUserId() {
         return userId;
@@ -56,19 +56,19 @@ public class UsersPlacesPreferences {
         this.rating = rating;
     }
 
-    public boolean isFavorite() {
+    public boolean getIsFavorite() {
         return isFavorite;
     }
 
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
+    public void setIsFavorite(boolean isFavorite) {
+        this.isFavorite = isFavorite;
     }
 
-    public LocalDateTime getLastUpdate() {
+    public Instant getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(LocalDateTime lastUpdate) {
+    public void setLastUpdate(Instant lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 

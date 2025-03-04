@@ -2,7 +2,7 @@ package com.example.hundredplaces.data.visits;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 import java.util.UUID;
 
 @Entity
@@ -28,7 +28,7 @@ public class Visit {
             name = "date_visited",
             nullable = false
     )
-    private LocalDateTime dateVisited = LocalDateTime.now();
+    private Instant dateVisited = Instant.now();
 
     public UUID getId() {
         return id;
@@ -54,11 +54,11 @@ public class Visit {
         this.placeId = placeId;
     }
 
-    public LocalDateTime getDateVisited() {
+    public Instant getDateVisited() {
         return dateVisited;
     }
 
-    public void setDateVisited(LocalDateTime dateVisited) {
+    public void setDateVisited(Instant dateVisited) {
         this.dateVisited = dateVisited;
     }
 
